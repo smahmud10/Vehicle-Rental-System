@@ -1,10 +1,21 @@
-import express from'express';
-const app = express();
-const port = 5000;
+import express from "express";
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+import { userRouter } from "./modules/users/user.router";
+import config from "./config";
+import initDB from "./config/db";
+import { authRouter } from "./modules/auth /auth.router";
+const app = express();
+const port = config.port;
+
+// parser
+app.use(express.json());
+
+initDB();
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/auth",authRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
