@@ -12,13 +12,13 @@ const loginUser = async (email: string, password: string) => {
     [email],
   );
   if (result.rows.length === 0) {
-    throw new Error("User not found");
+    throw new Error("Invalid credentials");
   }
   const user = result.rows[0];
 
   const match = await bcrypt.compare(password, user.password);
   if (!match) {
-    throw new Error("Password does not match");
+    throw new Error("Invalid credentials");
   }
   const token = jwt.sign(
     { id: user.id, name: user.name, email: user.email, role: user.role },

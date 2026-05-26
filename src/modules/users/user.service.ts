@@ -14,7 +14,7 @@ const createUser = async (payload: Record<string, unknown>) => {
     INSERT INTO users(name, email, password,phone) VALUES($1,$2,$3,$4) RETURNING *`,
     [name, lowercaseEmail, hashPass, phone],
   );
- delete result.rows[0].password;
+  delete result.rows[0].password;
   return result;
 };
 

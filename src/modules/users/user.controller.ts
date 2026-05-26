@@ -34,6 +34,16 @@ const getAllUser = async (req: Request, res: Response) => {
 };
 
 const getSingleUser = async (req: Request, res: Response) => {
+  if (
+    req.user?.role === "customer" &&
+    req.user?.id !== Number(req.params.userId)
+  ) {
+    return res.status(403).json({
+      success: false,
+      message: "Forbidden Access",
+    });
+  }
+
   try {
     const result = await userServices.getSingleUser(
       req.params.userId as string,
@@ -60,6 +70,16 @@ const getSingleUser = async (req: Request, res: Response) => {
 };
 
 const updateUser = async (req: Request, res: Response) => {
+  if (
+    req.user?.role === "customer" &&
+    req.user?.id !== Number(req.params.userId)
+  ) {
+    return res.status(403).json({
+      success: false,
+      message: "Forbidden Access",
+    });
+  }
+
   const { name, email } = req.body;
   try {
     const result = await userServices.updateUser(
