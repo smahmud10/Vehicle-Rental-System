@@ -4,10 +4,11 @@ import { vehicleServices } from "./vehicle.service";
 const createVehicle = async (req: Request, res: Response) => {
   try {
     const result = await vehicleServices.createVehicle(req.body);
+    console.log(req.body);
     res.status(201).json({
       success: true,
       message: "Data Inserted Successfully",
-      data: result.rows[0],
+      data: result,
     });
   } catch (error: any) {
     res.status(500).json({

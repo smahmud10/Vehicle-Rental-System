@@ -46,13 +46,7 @@ const createVehicle = async (payload: Record<string, unknown>) => {
     VALUES($1,$2,$3,$4,$5)
     RETURNING *
     `,
-    [
-      vehicle_name,
-      type,
-      registration_number,
-      daily_rent_price,
-      availability_status,
-    ],
+    [vehicle_name, type, registration_number, daily_rent_price, status],
   );
 
   return result.rows[0];
