@@ -21,30 +21,31 @@ Live URL: [Vehicle Rental System](https://vehicle-rental-system-three-nu.vercel.
 - JWT
 - Vercel
 ## API Endpoints
-
 ### Auth
 
-POST /api/v1/auth/signup
-POST /api/v1/auth/signin
+- POST /api/v1/auth/signup
+- POST /api/v1/auth/signin
 
 ### Users
-GET	/api/v1/users
-POST /api/v1/users
-PUT	/api/v1/users/:userId
-DELETE	/api/v1/users/:userId
+
+- GET /api/v1/users
+- POST /api/v1/users
+- PUT /api/v1/users/:userId
+- DELETE /api/v1/users/:userId
 
 ### Vehicles
 
-GET	/api/v1/vehicles
-POST	/api/v1/vehicles
-PUT	/api/v1/vehicles/:vehicleId
-DELETE	/api/v1/vehicles/:vehicleId
+- GET /api/v1/vehicles
+- POST /api/v1/vehicles
+- PUT /api/v1/vehicles/:vehicleId
+- DELETE /api/v1/vehicles/:vehicleId
 
 ### Bookings
 
-GET /api/v1/bookings
-POST /api/v1/bookings
-PUT	/api/v1/bookings/:bookingId
+- GET /api/v1/bookings
+- POST /api/v1/bookings
+- PUT /api/v1/bookings/:bookingId
+
 ## Setup & Usage Instructions
 
 ### Clone Repository
